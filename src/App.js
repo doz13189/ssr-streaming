@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, use } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 export default function App() {
@@ -18,9 +18,7 @@ const sleep = (ms) => {
 };
 
 function Content() {
-  if (Math.random() < 0.5) {
-    throw sleep(5000);
-  }
+  use(sleep(5000));
   return <p>Hello World</p>;
 }
 
